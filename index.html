@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Profile Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f58e;
+        }
+        .card {
+            background: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .card h2 {
+            margin: 10px 0;
+            color:#263d53;
+        }
+        .card p {
+            font-size: 14px;
+            color: rgba(42, 34, 34, 0.667);
+            margin: 5px 0;
+            text-align: center;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 2px;
+            text-decoration: none;
+            color:#263d53;
+            font-weight: bold;
+        }
+        i{
+            margin-right: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="./profile pic.jpg" alt="Profile Picture" data-testid="profilePicture">
+        <h2 data-testid="fullName">Chigozirim Rufus</h2>
+        <p data-testid="jobTitle" style="font-weight:700; font-style: italic;">Frontend Developer</p>
+        <p data-testid="shortBio">"I am Crufus, a front-end developer who loves crafting smooth, responsive websites. Using HTML, CSS, JavaScript coupled with other tools. I focus on creating user-friendly experiences that stand out."</p>
+        <p data-testid="currentLocation" style="font-weight:600;"><i class="fa-solid fa-map-pin"></i>Lagos, Nigeria</p>
+        <p data-testid="emailAddress" style="font-weight:600;"><i class="fa-solid fa-envelope"></i>chigozirimrufus@gmail.com</p>
+        
+        <div class="social-links" data-testid="socialLinks">
+            <a href="https://www.linkedin.com/in/chigozirim-rufus-5947b2284/"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+            <a href="https://github.com/cru-fus"><i class="fa-brands fa-github"></i>GitHub</a>
+            <a href="https://x.com/__Crufus"><i class="fa-brands fa-x-twitter"></i>Twitter </a>
+        </div>
+        
+        <p data-testid="currentTimeUTC" id="utcTime" style="font-weight:600;">Loading time...</p>
+    </div>
+    <script>
+        function updateTime() {
+            const utcTimeElement = document.getElementById('utcTime');
+            const now = new Date();
+            utcTimeElement.textContent = now.toUTCString();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
